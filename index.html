@@ -1,1 +1,48 @@
-<h1>Hello</h1>
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OpenClaw 虚拟办公室</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <header class="topbar">
+        <h1>OpenClaw 虚拟办公室看板</h1>
+        <p id="syncHint" class="sync-hint">等待读取数据 ...</p>
+      </header>
+
+      <div class="workspace-board">
+        <section class="office-stage" aria-label="虚拟办公室场景">
+          <img class="office-bg" src="assets/office.png" alt="Virtual office" />
+          <div id="agentLayer" class="agent-layer" aria-live="polite"></div>
+          <div class="target-screen" aria-label="目标显示屏">
+            <pre id="targetScreenText" class="target-screen-text">TARGET\nSYNCING...</pre>
+          </div>
+        </section>
+
+        <aside class="history-panel" aria-label="历史任务">
+          <h4 class="history-title">📋 历史任务</h4>
+          <ul id="historyTaskList" class="history-task-list"></ul>
+        </aside>
+      </div>
+    </main>
+
+    <template id="agentCardTemplate">
+      <article class="agent-card" aria-live="polite">
+        <span class="agent-pin" aria-hidden="true"></span>
+        <div class="bubble">
+          <div class="bubble-header">
+            <strong class="agent-name"></strong>
+            <span class="status-tag"></span>
+          </div>
+          <p class="agent-task"></p>
+        </div>
+      </article>
+    </template>
+
+    <script defer src="./app.js"></script>
+  </body>
+</html>
+
